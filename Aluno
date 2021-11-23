@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+       Scanner entrada = new Scanner(System.in);
+       Pessoa p = new Pessoa("Luana",31,1.45f);
+       
+        System.out.println("Qual é o nome do aluno?");
+        p.setNome(entrada.nextLine());
+        System.out.println("Qual é o seu ano de nascimento?");
+        p.setDataDeNascimento(entrada.nextInt());
+        System.out.println("Qual é a sua altura?");
+        p.setAltura(entrada.nextFloat());
+        System.out.println("------------------------------------");
+        p.imprimirDados();
+        System.out.println("------------------------------------");
+       }
+    
+    
+public class Pessoa {
+    private String nome;
+    private int dataDeNascimento;
+    private float altura;
+
+    public Pessoa(String nome, int dataDeNascimento, float altura) {
+        this.nome = nome;
+        this.dataDeNascimento = dataDeNascimento;
+        this.altura = altura;
+    }
+    
+    public int calcularIdade(){
+        return 2021 - this.getDataDeNascimento();
+    }
+    
+    public void imprimirDados(){
+        System.out.println("O nome dessa pessoa é "+ this.getNome());
+        System.out.printf("Ela(e) tem %.2f",this.getAltura());
+        System.out.println("m de altura.");
+        System.out.println("Ela(e) tem "+this.calcularIdade()+" anos de idade.");
+    }
+       
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getDataDeNascimento() {
+        return dataDeNascimento;
+    }
+
+    public void setDataDeNascimento(int dataDeNascimento) {
+        this.dataDeNascimento = dataDeNascimento;
+    }
+
+    public float getAltura() {
+        return altura;
+    }
+
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+    
+    
+}
+    
+}
