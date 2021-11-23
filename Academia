@@ -1,0 +1,75 @@
+import java.util.Scanner;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+public class Academia {
+	public static void main(String args[]) {
+		Scanner entrada = new Scanner(System.in);
+		Aluno a = new Aluno();
+                 System.out.println("Data da matrícula: " + a.getDataMatricula());          
+		System.out.print("Digite o nome do novo aluno:  ");
+		a.setNome(entrada.nextLine());
+		
+		System.out.print("Digite a idade do novo aluno: ");
+		a.setIdade(entrada.nextInt());
+		System.out.println("-----------------------------------");
+		System.out.println("Ficha cadastral do novo aluno ");
+		System.out.println("Nome: " + a.getNome());
+		System.out.println("Idade: " + a.getIdade());
+		System.out.println("Data da matrícula: " + a.getDataMatricula());
+		System.out.println("Turma: " + a.getTurma());
+	}
+  
+  public class Aluno {
+	private String nome;
+	private int idade;
+	private String turma;
+	private final String dataMatricula;
+
+	public Aluno() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date date = new Date();
+		dataMatricula = dateFormat.format(date);
+                
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getNome() {
+		return this.nome;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+		defineTurma();
+	}
+
+	public int getIdade() {
+		return this.idade;
+	}
+
+	public String getTurma() {
+		return this.turma;
+	}
+
+	public String getDataMatricula() {
+		return this.dataMatricula;
+	}
+
+	private void defineTurma() {
+		if (this.idade < 18)
+			this.turma = "adolescente";
+		else if (this.idade < 40)
+			this.turma = "jovem";
+		else if (this.idade < 60)
+			this.turma = "adulto";
+		else
+			this.turma = "idoso";
+	}
+}
+  
+  
+}
