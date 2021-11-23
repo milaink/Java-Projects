@@ -1,0 +1,115 @@
+import java.util.Scanner;
+
+public class AppElevador {
+    public static void main(String args[]) {
+        Scanner entrada = new Scanner(System.in);
+        Elevador e = new Elevador(10, 20);
+        int N;
+              
+        e.exibir();
+                    
+        System.out.println("Quantas pessoas entraram?");
+        N = entrada.nextInt();
+       
+            for (int i = 0; i < N; i++){
+                e.entra();
+              }
+            
+            System.out.println("Quantas pessoas sairam?");
+            N = entrada.nextInt();
+            for (int i = 0; i < N; i++){
+                e.sai();
+              }
+            
+            System.out.println("Quantos andares subiram?");
+            N = entrada.nextInt();
+            for (int i = 0; i < N; i++){
+                e.sobe();
+              }
+             System.out.println("Quantos andares desceram?");
+            N = entrada.nextInt();
+            for (int i = 0; i < N; i++){
+                e.desce();
+              }
+            
+            e.exibir();           
+    }
+    
+   public class Elevador {
+       private int andarAtual;
+       private int totalAndares;
+       private int capacidade;
+       private int qtdPessoas;
+
+   public Elevador (int capacidade,int totalAndares){
+       this.capacidade = capacidade;
+       this.totalAndares = totalAndares;
+       this.andarAtual = 0;
+       this.qtdPessoas = 0;
+   }
+   
+   public void exibir(){
+        System.out.println("Andar atual: " + andarAtual);
+        System.out.println("Qtd. pessoas: " + qtdPessoas);
+        System.out.println("");
+    }
+           
+   public void entra(){
+       if(qtdPessoas < capacidade){
+           qtdPessoas ++;
+       }
+   } 
+   
+   public void sai(){
+       if(qtdPessoas != 0){
+           qtdPessoas --;
+       }
+   } 
+   
+   public void sobe(){
+       if(andarAtual < totalAndares){
+           andarAtual++;
+       }
+   } 
+   
+   public void desce(){
+       if(andarAtual > 0){
+           andarAtual--;
+       }
+   } 
+   
+    public int getAndarAtual() {
+        return andarAtual;
+    }
+
+    public void setAndarAtual(int andarAtual) {
+        this.andarAtual = andarAtual;
+    }
+
+    public int getTotalAndares() {
+        return totalAndares;
+    }
+
+    public void setTotalAndares(int totalAndares) {
+        this.totalAndares = totalAndares;
+    }
+
+    public int getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(int capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    public int getQtdPessoas() {
+        return qtdPessoas;
+    }
+
+    public void setQtdPessoas(int qtdPessoas) {
+        this.qtdPessoas = qtdPessoas;
+    }
+     
+}
+
+}
