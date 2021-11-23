@@ -1,0 +1,127 @@
+import java.util.Scanner;
+
+public class Main {
+
+ public static void main(String[] args) {
+    Scanner entrada = new Scanner(System.in);
+    int n = entrada.nextInt();
+    Jogador[] time = new Jogador[n];  
+       
+    for(int i = 0; i < n; i ++) {
+            time[i] = new Jogador();
+            time[i].setNome(entrada.next());
+            time[i].setSaques(entrada.nextInt());
+            time[i].setBloqueios(entrada.nextInt());
+            time[i].setAtaques(entrada.nextInt());  
+            time[i].setSucsaq(entrada.nextInt());
+            time[i].setSucblo(entrada.nextInt());
+            time[i].setSucataq(entrada.nextInt());  
+    }
+    
+    int totalAtaques = 0; 
+    int totalBloqueios = 0;
+    int totalSaques = 0;
+    int sucessoAtaques = 0;
+    int sucessoBloqueios = 0;
+    int sucessoSaques = 0;
+      
+      for(int i = 0; i < n; i ++) {
+            totalSaques += time[i].getSaques();
+            totalBloqueios += time[i].getBloqueios();
+            totalAtaques += time[i].getAtaques();  
+            sucessoSaques += time[i].getSucsaq();
+            sucessoBloqueios += time[i].getSucblo();
+            sucessoAtaques += time[i].getSucataq();  
+    }
+    
+    double saqueTotal = ((sucessoSaques * 100)/ (double)totalSaques);
+    double bloqueioTotal = ((sucessoBloqueios * 100)/ (double)totalBloqueios);
+    double ataqueTotal = ((sucessoAtaques * 100)/ (double)totalAtaques);
+    
+    System.out.printf("Pontos de Saque: %.2f %%.\n", saqueTotal);
+    System.out.printf("Pontos de Bloqueio: %.2f %%.\n", bloqueioTotal);
+    System.out.printf("Pontos de Ataque: %.2f %%.\n", ataqueTotal);
+          
+  }
+  package uri;
+
+public class Jogador {
+
+    private String nome;
+    private int bloqueios;
+    private int saques;
+    private int ataques;
+    private int sucblo;
+    private int sucsaq;
+    private int sucataq;
+
+    public Jogador() {
+        this.nome = nome;
+        this.bloqueios = bloqueios;
+        this.saques = saques;
+        this.ataques = ataques;
+        this.sucblo = sucblo;
+        this.sucsaq = sucsaq;
+        this.sucataq = sucataq;
+    }
+    
+      
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getBloqueios() {
+        return bloqueios;
+    }
+
+    public void setBloqueios(int bloqueios) {
+        this.bloqueios = bloqueios;
+    }
+
+    public int getSaques() {
+        return saques;
+    }
+
+    public void setSaques(int saques) {
+        this.saques = saques;
+    }
+
+    public int getAtaques() {
+        return ataques;
+    }
+
+    public void setAtaques(int ataques) {
+        this.ataques = ataques;
+    }
+
+    public int getSucblo() {
+        return sucblo;
+    }
+
+    public void setSucblo(int sucblo) {
+        this.sucblo = sucblo;
+    }
+
+    public int getSucsaq() {
+        return sucsaq;
+    }
+
+    public void setSucsaq(int sucsaq) {
+        this.sucsaq = sucsaq;
+    }
+
+    public int getSucataq() {
+        return sucataq;
+    }
+
+    public void setSucataq(int sucataq) {
+        this.sucataq = sucataq;
+    }
+  
+}
+
+}
